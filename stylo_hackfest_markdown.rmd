@@ -1,0 +1,35 @@
+### Stylometric analysis of Hamlet using R
+
+R code to accompany stylometric analysis of Hamlet for HiCor hackfest.
+
+First, load stylo library and data into R:
+'''
+library(stylo)
+
+hamlet = read.table('...\\data\\ShakeHack-master\\F-ham.csv', header=F,sep="\t")
+
+```
+
+Next, generate list of texts for each character in Hamlet:
+
+```
+hamlet.corpus = list()
+
+for (i in 1:nrow(hamlet)) {
+ tmp = strsplit(tolower(gsub("\\.|,|\\?|\\!|\\;|\\:","", as.character(hamlet[i,4]))), ' ')
+ hamlet.corpus[i] = tmp
+
+
+}
+
+```
+
+Set names and generate cluster plot:
+
+```
+names(hamlet.corpus) = hamlet$V1
+    stylo(parsed.corpus=hamlet.corpus)
+
+
+```
+
