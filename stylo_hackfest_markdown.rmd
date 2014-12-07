@@ -3,7 +3,7 @@
 R code to accompany stylometric analysis of Hamlet for HiCor hackfest.
 
 First, load stylo library and data into R:
-'''
+```
 library(stylo)
 
 hamlet = read.table('...\\data\\ShakeHack-master\\F-ham.csv', header=F,sep="\t")
